@@ -19,7 +19,6 @@ public class Actividad2 {
                     System.out.println("Fichero eliminado");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
-                    System.out.println("Ha habido un error en la eliminación del fichero");
                 }
             else if (respuesta.equals("N")){
                 System.out.println("Cancelando...");
