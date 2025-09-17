@@ -1,4 +1,5 @@
-import java.io.File;
+package Tarea1;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
