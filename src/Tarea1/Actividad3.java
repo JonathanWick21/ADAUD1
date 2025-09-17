@@ -23,7 +23,12 @@ public class Actividad3 {
         }
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(rutaPruebas)){
             for (Path path: stream){
-                Files.copy(path, rutaRespaldo.resolve(path.getFileName()));
+                if (!Files.exists(rutaRespaldo.resolve(path.getFileName()))) {
+                    Files.copy(path, rutaRespaldo.resolve(path.getFileName()));
+                    System.out.println("Se ha copiado el archivo " + path.getFileName());
+                }
+                else
+                    System.out.println("El archivo " + path.getFileName() + "   ya existe");
             } // ./pruebas/hola1.txt ./respaldo/hola1.txt
         } catch (IOException e) {
             throw new RuntimeException(e);
