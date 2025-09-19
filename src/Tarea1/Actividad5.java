@@ -15,6 +15,7 @@ public class Actividad5 {
 
 
         Pattern regexTxt = Pattern.compile(".*\\.txt$");
+        Pattern regexJpg = Pattern.compile(".*\\.jpg$");
 
         if (!Files.exists(textos))
             try {
@@ -32,8 +33,12 @@ public class Actividad5 {
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(entrada)){
             for (Path path: stream){
              if (regexTxt.matcher(path.getFileName().toString()).matches()) {
-                 Files.createDirectory(textos.resolve(path.getFileName()));
-                 System.out.println("Se ha copiado el archivo " + path.getFileName() + "a la carpeta textos");
+                 Files.move(path, textos.resolve(path.getFileName()));
+                 System.out.println("Se ha copiado el archivo " + path.getFileName() + " a la carpeta textos");
+             }
+             if (regexJpg.matcher(path.getFileName().toString()).matches()){
+                 Files.move(path, imagenes.resolve(path.getFileName()));
+                 System.out.println("Se ha copiado el archivo " + path.getFileName() + " a la carpeta de imagenes");
              }
 
             }
