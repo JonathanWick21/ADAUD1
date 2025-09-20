@@ -9,8 +9,7 @@ public class LecturaBinarios {
     public static void main(String[] args) {
         try {
             byte[] datos = Files.readAllBytes(Path.of("Files/binary.dat"));
-            System.out.println(datos.length
-            );
+            System.out.println(datos.length);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
