@@ -3,11 +3,10 @@ package Tarea3;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Comparator;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class Tarea3 {
+public class Actividad3 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Introduce el minimo de MBs");

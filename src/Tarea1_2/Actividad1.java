@@ -13,7 +13,7 @@ public class Actividad1 {
         Path path = Path.of("./salida.bin");
 
 
-        //Version FileOutputStream se SOBRESCRIBEN los datos del fichero
+        //Version FileOutputStream se SOBRESCRIBEN los datos del fichero-+
         try (FileOutputStream fos = new FileOutputStream(path.toFile())){
             fos.write(datos);
         } catch (IOException e) {
