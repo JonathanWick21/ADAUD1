@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Actividad8 {
@@ -25,12 +26,14 @@ public class Actividad8 {
                 List<Path> paths = stream.toList();
 
                 for (Path path: paths){
-                    mapa.put(path.getFileName().toString(), mapa.getOrDefault(path, 0) + 1);
+                    mapa.put(path.getFileName().toString(), mapa.getOrDefault(path.getFileName().toString(), 0) + 1);
                 }
 
-                mapa.entrySet().stream().filter()
+                mapa = mapa.entrySet().stream().filter(m -> m.getValue() > 1).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                int total = mapa.values().stream().mapToInt(Integer::intValue).sum();
 
-                System.out.println("Duplicados (criterio: mismo nombre): " + );
+                System.out.println("Duplicados (criterio: mismo nombre): " + total + " ficheros");
+                mapa.entrySet().stream().forEach(stringIntegerEntry -> System.out.println("\""+stringIntegerEntry.getKey()+"\": " + stringIntegerEntry.getValue() + " ocurrencias"));
 
 
             } catch (Exception e) {
