@@ -18,9 +18,11 @@ public class Actividad1 {
 
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(ruta)){
                 stream.forEach(path -> {
-                    System.out.println(path.getFileName() + "es un ");
+                    System.out.print(path.getFileName() + "es un ");
                     if (Files.isDirectory(path))
-                    System.out.print("directorio");
+                        System.out.println("directorio");
+                    else
+                        System.out.println("fichero");
                 });
             } catch (Exception e) {
                 throw new RuntimeException(e);
